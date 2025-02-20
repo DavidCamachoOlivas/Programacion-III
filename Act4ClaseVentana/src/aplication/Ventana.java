@@ -24,11 +24,14 @@ public class Ventana extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
-		JPanel panelInicio = login();
-        this.add(panelInicio);
+		//JPanel panelInicio = login();
+        //this.add(panelInicio);
         
-        JPanel registro = registro();
-        this.add(registro);
+        //JPanel registro = registro();
+        //this.add(registro);
+        
+        JPanel usuarios = usuarios();
+        this.add(usuarios);
         
         this.setVisible(true);
 		this.repaint();
@@ -402,4 +405,111 @@ public class Ventana extends JFrame{
 		return login;
 	}
 
+	public JPanel usuarios() {
+		
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel usuarios = new JPanel();
+		usuarios.setLocation(250, 0);
+		usuarios.setSize(900, 700);
+		usuarios.setOpaque(true);
+		usuarios.setBackground(Color.decode("#2c8444"));
+		usuarios.setVisible(true);
+		usuarios.setLayout(null);
+		
+		JLabel titulo = new JLabel("Usuarios");
+		
+		titulo.setSize(500, 50);
+		titulo.setLocation(200,50);
+		titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.WHITE);
+		titulo.setFont(titulos);
+		usuarios.add(titulo);
+		
+		JLabel totalUsuarios = new JLabel("Total de usuarios:");
+		
+		totalUsuarios.setSize(400, 100);
+		totalUsuarios.setLocation(20,150);
+		totalUsuarios.setBackground(Color.decode("#2c8444"));
+		totalUsuarios.setHorizontalAlignment(JLabel.LEFT); 
+		totalUsuarios.setVerticalAlignment(JLabel.TOP); 
+		totalUsuarios.setVisible(true);
+		totalUsuarios.setOpaque(true);
+		totalUsuarios.setForeground(Color.WHITE);
+		totalUsuarios.setFont(titulos);
+		usuarios.add(totalUsuarios);
+		
+		
+		String[] columnNames = {
+				"First name",
+				"Last name",
+				"Game",
+				"Age",
+				"Meat eater"
+		};
+		
+		Object [][] data = {
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+				{"Katy", "Perez","Basquet","1998",true},
+		};
+		
+		JTable tabla = new JTable(data,columnNames);
+		JScrollPane scrollPane = new JScrollPane(tabla);
+		scrollPane.setSize(800,200);
+		scrollPane.setLocation(30,350);
+		
+		JButton exportar = new JButton();
+		
+		exportar.setBounds(500, 300, 160, 40);
+		exportar.setText("Exportar");
+		exportar.setVisible(true);
+		exportar.setOpaque(true);
+		exportar.setBackground(Color.decode("#216233"));
+		exportar.setForeground(Color.white);
+		exportar.setFont(subtitulos);
+		usuarios.add(exportar);
+		this.setVisible(true);
+		
+		JButton añadir = new JButton();
+		
+		añadir.setBounds(670, 300, 160, 40);
+		añadir.setText("Añadir");
+		añadir.setVisible(true);
+		añadir.setOpaque(true);
+		añadir.setBackground(Color.decode("#216233"));
+		añadir.setForeground(Color.white);
+		añadir.setFont(subtitulos);
+		usuarios.add(añadir);
+		this.setVisible(true);
+		
+		usuarios.add(scrollPane);
+		this.setVisible(true);
+		return usuarios;
+		
+		
+	}
 }
