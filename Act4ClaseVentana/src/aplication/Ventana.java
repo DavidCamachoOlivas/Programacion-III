@@ -34,6 +34,33 @@ public class Ventana extends JFrame{
         /*JPanel usuarios = usuarios();
         this.add(usuarios);*/
         
+        JMenuBar barra = new JMenuBar();
+        
+        JMenu menu1 = new JMenu("Archivo");
+        JMenu menu2 = new JMenu("Ayuda");
+        
+        
+        JMenuItem op_new = new JMenuItem("Nuevo");
+        JMenuItem op_open = new JMenuItem("Abrir");
+        JMenuItem op_close = new JMenuItem("Cerrar");
+        
+        menu1.add(op_new);
+        menu1.add(op_open);
+        menu1.add(op_close);
+        
+        JRadioButtonMenuItem op_help = new JRadioButtonMenuItem("Manual de usuario");
+        JCheckBoxMenuItem op_support = new JCheckBoxMenuItem("Soporte");
+        
+        menu2.add(op_help);
+        menu2.add(op_support);
+        
+        barra.add(menu1);
+        barra.add(menu2);
+        
+        this.setJMenuBar(barra);
+        
+        
+        
         this.setVisible(true);
 		this.repaint();
 		this.revalidate();
