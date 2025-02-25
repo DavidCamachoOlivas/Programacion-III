@@ -9,6 +9,7 @@ import java.awt.font.TextAttribute;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 
 public class Ventana extends JFrame{
 	public Ventana(String title) {
@@ -24,14 +25,14 @@ public class Ventana extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
-		//JPanel panelInicio = login();
-        //this.add(panelInicio);
+		JPanel panelInicio = login();
+        this.add(panelInicio);
         
-        //JPanel registro = registro();
-        //this.add(registro);
+        JPanel registro = registro();
+        this.add(registro);
         
-        JPanel usuarios = usuarios();
-        this.add(usuarios);
+        /*JPanel usuarios = usuarios();
+        this.add(usuarios);*/
         
         this.setVisible(true);
 		this.repaint();
@@ -39,6 +40,7 @@ public class Ventana extends JFrame{
 		
 		
 	}
+	
 	public JPanel login() {
 		
 		Font titulos = new Font("Inika", Font.BOLD, 32);
@@ -46,14 +48,35 @@ public class Ventana extends JFrame{
 		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
 		
 		
-		JPanel login = new JPanel();
+		/*JPanel login = new JPanel();
 		login.setLocation(0, 0);
 		login.setSize(750, 700);
-		login.setOpaque(true);
+		login.setOpaque(false);
 		login.setBackground(Color.black);
 		login.setVisible(true);
-		login.setLayout(null);
+		login.setLayout(null);*/
 		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		/*JPanel icon1 = new JPanel();
+		icon1.setBounds(0, 0, 50, 50);
+		icon1.setLayout(null);
+		icon1.setVisible(true);
+		icon1.setOpaque(false);*/
+		ImageIcon icon = new ImageIcon(new ImageIcon("user.png").getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
+		JLabel userIcon = new JLabel(icon);
+		userIcon.setBounds(70, 160, 50, 50);
+		
+		ImageIcon icon2 = new ImageIcon(new ImageIcon("password.png").getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
+		JLabel passwordIcon = new JLabel(icon2);
+		passwordIcon.setBounds(70, 290, 50, 50);
 		
 		//this.add(login);
 		//this.repaint();
@@ -62,38 +85,38 @@ public class Ventana extends JFrame{
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		etiqueta1.setBackground(Color.decode("#2c8444"));
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(true);
-		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
 		
-		login.add(etiqueta1);
+		fondo.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Inicio de sesión");
 		
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		titulo.setBackground(Color.decode("#2c8444"));
+		//titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.WHITE);
+		titulo.setForeground(Color.black);
 		titulo.setFont(titulos);
 		
 		etiqueta1.add(titulo);
 
 		JLabel nombre = new JLabel("Nombre de usuario:");
 		
-		nombre.setSize(500, 50);
-		nombre.setLocation(20,130);
-		nombre.setBackground(Color.decode("#2c8444"));
+		nombre.setSize(450, 50);
+		nombre.setLocation(70,130);
+		//nombre.setBackground(Color.decode("#2c8444"));
 		nombre.setHorizontalAlignment(JLabel.LEFT); 
 		nombre.setVerticalAlignment(JLabel.CENTER); 
 		nombre.setVisible(true);
 		nombre.setOpaque(true);
-		nombre.setForeground(Color.WHITE);
+		nombre.setForeground(Color.black);
 		nombre.setFont(subtitulos);
 		etiqueta1.add(nombre);
 		
@@ -110,14 +133,14 @@ public class Ventana extends JFrame{
 		
 		JLabel contraseña = new JLabel("Contraseña:");
 		
-		contraseña.setSize(500, 50);
-		contraseña.setLocation(20,260);
-		contraseña.setBackground(Color.decode("#2c8444"));
+		contraseña.setSize(450, 50);
+		contraseña.setLocation(70,260);
+		//contraseña.setBackground(Color.decode("#2c8444"));
 		contraseña.setHorizontalAlignment(JLabel.LEFT); 
 		contraseña.setVerticalAlignment(JLabel.CENTER); 
 		contraseña.setVisible(true);
 		contraseña.setOpaque(true);
-		contraseña.setForeground(Color.WHITE);
+		contraseña.setForeground(Color.black);
 		contraseña.setFont(subtitulos);
 		etiqueta1.add(contraseña);
 		
@@ -138,8 +161,8 @@ public class Ventana extends JFrame{
 		caja.setText("Recordar mi usuario");
 		caja.setVisible(true);
 		caja.setOpaque(true);
-		caja.setBackground(Color.decode("#2c8444"));
-		caja.setForeground(Color.white);
+		//caja.setBackground(Color.decode("#2c8444"));
+		caja.setForeground(Color.black);
 		caja.setFont(texto);
 		etiqueta1.add(caja);
 		
@@ -150,8 +173,8 @@ public class Ventana extends JFrame{
 		contraOlvidada.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
 		contraOlvidada.setVisible(true);
 		contraOlvidada.setOpaque(true);
-		contraOlvidada.setBackground(Color.decode("#2c8444"));
-		contraOlvidada.setForeground(Color.white);
+		//contraOlvidada.setBackground(Color.decode("#2c8444"));
+		contraOlvidada.setForeground(Color.black);
 		contraOlvidada.setBorderPainted(false);
 		contraOlvidada.setFont(texto);
 		etiqueta1.add(contraOlvidada);
@@ -164,13 +187,16 @@ public class Ventana extends JFrame{
 		enter.setText("Ingresar");
 		enter.setVisible(true);
 		enter.setOpaque(true);
-		enter.setBackground(Color.decode("#216233"));
-		enter.setForeground(Color.white);
+		//enter.setBackground(Color.decode("#216233"));
+		enter.setForeground(Color.black);
 		enter.setFont(subtitulos);
 		etiqueta1.add(enter);
 		this.setVisible(true);
 		
-		return login;
+		fondo.add(userIcon);
+		fondo.add(passwordIcon);
+		fondo.add(fondoImg);
+		return fondo;
 	}
 	public JPanel registro() {
 		Font titulos = new Font("Inika", Font.BOLD, 32);
@@ -404,6 +430,7 @@ public class Ventana extends JFrame{
 		
 		return login;
 	}
+
 
 	public JPanel usuarios() {
 		
