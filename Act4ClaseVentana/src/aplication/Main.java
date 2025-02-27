@@ -7,7 +7,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		//Ventana ventana = new Ventana("Login Page");
 		
-		Calculadora calculadora = new Calculadora("Calculadora");
+		//Calculadora calculadora = new Calculadora("Calculadora");
+		
+		InterfazLayout interfaz = new InterfazLayout("Interes");
 	}
 
 }
