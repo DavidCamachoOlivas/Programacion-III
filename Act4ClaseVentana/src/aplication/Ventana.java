@@ -59,7 +59,8 @@ public class Ventana extends JFrame{
         
         this.setJMenuBar(barra);
         
-        
+        this.setIconImage(new ImageIcon("logo.png").getImage());
+
         
         this.setVisible(true);
 		this.repaint();
