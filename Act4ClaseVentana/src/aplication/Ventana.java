@@ -3,6 +3,8 @@ import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.TextField;
 import java.awt.font.TextAttribute;
 
@@ -69,6 +71,7 @@ public class Ventana extends JFrame{
 		
 	}
 	
+	
 	public JPanel login() {
 		
 		Font titulos = new Font("Inika", Font.BOLD, 32);
@@ -76,13 +79,7 @@ public class Ventana extends JFrame{
 		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
 		
 		
-		/*JPanel login = new JPanel();
-		login.setLocation(0, 0);
-		login.setSize(750, 700);
-		login.setOpaque(false);
-		login.setBackground(Color.black);
-		login.setVisible(true);
-		login.setLayout(null);*/
+		
 		
 		JPanel fondo = new JPanel();
 		fondo.setBounds(0, 0, 750, 700);
@@ -93,11 +90,7 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
-		/*JPanel icon1 = new JPanel();
-		icon1.setBounds(0, 0, 50, 50);
-		icon1.setLayout(null);
-		icon1.setVisible(true);
-		icon1.setOpaque(false);*/
+		
 		ImageIcon icon = new ImageIcon(new ImageIcon("user.png").getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
 		JLabel userIcon = new JLabel(icon);
 		userIcon.setBounds(70, 160, 50, 50);
@@ -106,8 +99,7 @@ public class Ventana extends JFrame{
 		JLabel passwordIcon = new JLabel(icon2);
 		passwordIcon.setBounds(70, 290, 50, 50);
 		
-		//this.add(login);
-		//this.repaint();
+		
 		
 		
 		JPanel etiqueta1 = new JPanel();
@@ -226,6 +218,7 @@ public class Ventana extends JFrame{
 		fondo.add(fondoImg);
 		return fondo;
 	}
+	
 	public JPanel registro() {
 		Font titulos = new Font("Inika", Font.BOLD, 32);
 		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
@@ -567,4 +560,7 @@ public class Ventana extends JFrame{
 		
 		
 	}
+	
+	
+	
 }
