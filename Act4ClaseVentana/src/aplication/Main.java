@@ -11,7 +11,9 @@ public class Main {
 		
 		//InterfazLayout interfaz = new InterfazLayout("Interes");
 		
-		Figuras figuras = new Figuras("Garabatos");
+		//Figuras figuras = new Figuras("Garabatos");
+		
+		Casa casa = new Casa("Casita");
 	}
 
 }

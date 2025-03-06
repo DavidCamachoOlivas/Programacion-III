@@ -94,11 +94,17 @@ public class Figuras extends JFrame {
 		BufferedImage image;
 		try {
 			image = ImageIO.read(new File("artist.jpg"));
-			g2.drawImage(image, 550, 125, 100, 100, Color.gray, null);
+			g2.drawImage(image, 650, 125, 140, 140, Color.gray, null);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		int[] xs = {300,600,700,200};
+		int[] ys = {150,150,300,300};
+		
+		
+		g2.drawPolygon(xs,ys,4);
 		
 		g2.clearRect(100, 100, 50, 50);
 	}
