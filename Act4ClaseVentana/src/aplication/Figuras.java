@@ -70,6 +70,8 @@ public class Figuras extends JFrame {
 		g2.setStroke(new BasicStroke(10));
 		g2.drawLine(100, 100, 600, 500);
 		
+		g2.drawRoundRect(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT, WIDTH, HEIGHT);
+		
 		g2.setColor(Color.decode("#d133ff"));
 		g2.drawOval(100, 500, 60, 60);
 		g2.fillOval(500, 500, 60, 60);

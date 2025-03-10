@@ -13,7 +13,9 @@ public class Main {
 		
 		//Figuras figuras = new Figuras("Garabatos");
 		
-		Casa casa = new Casa("Casita");
+		//Casa casa = new Casa("Casita");
+		
+		MarioWorld mundo = new MarioWorld("Super Mario Bros");		
 	}
 
 }
