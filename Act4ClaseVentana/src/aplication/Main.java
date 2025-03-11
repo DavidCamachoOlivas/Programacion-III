@@ -15,7 +15,7 @@ public class Main {
 		
 		//Casa casa = new Casa("Casita");
 		
-		MarioWorld mundo = new MarioWorld("Super Mario Bros");		
+		MarioWorld2 mundo = new MarioWorld2("Super Mario Bros");		
 	}
 
 }
