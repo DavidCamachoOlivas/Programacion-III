@@ -76,6 +76,8 @@ public class Ventana extends JFrame{
         barra.add(menu2);
         barra.add(menu3);
         
+        
+        
         this.setJMenuBar(barra);
         
         this.setIconImage(new ImageIcon("logo.png").getImage());
@@ -86,6 +88,25 @@ public class Ventana extends JFrame{
 		this.revalidate();
 		
 		
+		logIn.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("registro");
+			}});
+		
+		logOut.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
 	}
 	
 	
