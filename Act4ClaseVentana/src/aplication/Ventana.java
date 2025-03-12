@@ -1,10 +1,12 @@
 package aplication;
 import javax.swing.*;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,10 +22,10 @@ public class Ventana extends JFrame{
 		
 		this.setTitle(title);
 		
-		this.setSize(1500,700);
+		this.setSize(750,700);
 		
 		this.setResizable(true);
-		this.setLayout(null);
+		this.setLayout(new BorderLayout());
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,18 +34,21 @@ public class Ventana extends JFrame{
 		JPanel panelInicio = login();
         this.add(panelInicio);
         
-        JPanel registro = registro();
-        this.add(registro);
+        /*JPanel registro = registro();
+        //this.add(registro);*/
         
         /*JPanel usuarios = usuarios();
         this.add(usuarios);*/
         
+        
+        //crear menu
         JMenuBar barra = new JMenuBar();
         
         JMenu menu1 = new JMenu("Archivo");
         JMenu menu2 = new JMenu("Ayuda");
+        JMenu menu3 = new JMenu("Cuenta");
         
-        
+        //menu-Archivo--------------------------------------------------------------------------
         JMenuItem op_new = new JMenuItem("Nuevo");
         JMenuItem op_open = new JMenuItem("Abrir");
         JMenuItem op_close = new JMenuItem("Cerrar");
@@ -52,14 +57,24 @@ public class Ventana extends JFrame{
         menu1.add(op_open);
         menu1.add(op_close);
         
+        //menu Ayuda----------------------------------------------------------------------------
         JRadioButtonMenuItem op_help = new JRadioButtonMenuItem("Manual de usuario");
         JCheckBoxMenuItem op_support = new JCheckBoxMenuItem("Soporte");
         
         menu2.add(op_help);
         menu2.add(op_support);
         
+        //menu inicio de sesion-----------------------------------------------------------------
+        JMenuItem logIn = new JMenuItem("Acceder");
+        JMenuItem logOut = new JMenuItem("Crear cuenta");
+        
+        menu3.add(logIn);
+        menu3.add(logOut);
+        
+        //añadir todo al menu
         barra.add(menu1);
         barra.add(menu2);
+        barra.add(menu3);
         
         this.setJMenuBar(barra);
         
@@ -240,6 +255,28 @@ public class Ventana extends JFrame{
 					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
 				}
 			}});
+		
+		JButton ir_a_registro = new JButton("<html><u>¿No tienes cuenta?</u></html>");
+		ir_a_registro.setSize(200,50);
+		ir_a_registro.setLocation(25,450);
+		ir_a_registro.setBackground(null);
+		ir_a_registro.setVisible(true);
+		ir_a_registro.setOpaque(true);
+		ir_a_registro.setForeground(Color.black);
+		ir_a_registro.setBorderPainted(false);
+		ir_a_registro.setFont(texto);
+		
+		etiqueta1.add(ir_a_registro);
+		
+		ir_a_registro.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("registro");
+			}});
 		return fondo;
 	}
 	
@@ -250,7 +287,7 @@ public class Ventana extends JFrame{
 		
 		
 		JPanel login = new JPanel();
-		login.setLocation(750,0);
+		login.setLocation(0,0);
 		login.setSize(1000, 700);
 		login.setOpaque(true);
 		login.setBackground(Color.black);
@@ -483,7 +520,42 @@ public class Ventana extends JFrame{
 				}
 			}});
 		
+		JButton ir_a_login = new JButton("<html><u>Iniciar sesión</u></html>");
+		ir_a_login.setSize(200,50);
+		ir_a_login.setLocation(25,500);
+		ir_a_login.setBackground(null);
+		ir_a_login.setVisible(true);
+		ir_a_login.setOpaque(true);
+		ir_a_login.setForeground(Color.black);
+		ir_a_login.setBorderPainted(false);
+		ir_a_login.setFont(texto);
+		
+		etiqueta1.add(ir_a_login);
+		
+		ir_a_login.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
 		return login;
+	}
+	
+	public void manager(String target) {
+		this.getContentPane().removeAll();
+		
+		if(target.equals("login")) {
+			this.add(login());
+		}
+		if(target.equals("registro")) {
+			this.add(registro());
+		}
+		
+		this.repaint();
+		this.revalidate();
 	}
 
 
