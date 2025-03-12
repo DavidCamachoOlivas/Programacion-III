@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
 
 import javax.swing.JFrame;
@@ -216,6 +218,28 @@ public class Ventana extends JFrame{
 		fondo.add(userIcon);
 		fondo.add(passwordIcon);
 		fondo.add(fondoImg);
+		
+		enter.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				if (nombreInp.getText().equals("David")) {
+				    nombreInp.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+
+				    String password = new String(contraInp.getPassword()); 
+				    if (password.equals("contraseñaSecreta")) { 
+				        contraInp.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				        JOptionPane.showMessageDialog(null, "Bienvenido de vuelta", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+				    }
+				}else {
+					nombreInp.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+					contraInp.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+				}
+			}});
 		return fondo;
 	}
 	
@@ -233,9 +257,6 @@ public class Ventana extends JFrame{
 		login.setVisible(true);
 		login.setLayout(null);
 		
-		
-		//this.add(login);
-		//this.repaint();
 		
 		
 		JPanel etiqueta1 = new JPanel();
@@ -331,8 +352,6 @@ public class Ventana extends JFrame{
 		lugarInp.setSize(170, 30);
 		lugarInp.setLocation(410,240);
 		lugarInp.setBackground(Color.white);
-		/*lugar.setHorizontalAlignment(JLabel.LEFT); 
-		lugar.setVerticalAlignment(JLabel.CENTER); */
 		lugarInp.setVisible(true);
 		lugarInp.setOpaque(true);
 		lugarInp.setForeground(Color.black);
@@ -387,18 +406,6 @@ public class Ventana extends JFrame{
 		etiqueta1.add(caja3);
 		
 		
-		/*JButton contraOlvidada = new JButton();
-		
-		contraOlvidada.setBounds(280, 370, 260, 30);
-		contraOlvidada.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
-		contraOlvidada.setVisible(true);
-		contraOlvidada.setOpaque(true);
-		contraOlvidada.setBackground(Color.decode("#2c8444"));
-		contraOlvidada.setForeground(Color.white);
-		contraOlvidada.setBorderPainted(false);
-		contraOlvidada.setFont(texto);
-		etiqueta1.add(contraOlvidada);
-		this.setVisible(true);*/
 		
 		JLabel terminos = new JLabel("Terminos:");
 		
@@ -420,7 +427,8 @@ public class Ventana extends JFrame{
 		terms1.setBackground(Color.decode("#2c8444"));
 		terms1.setFont(texto);
 		terms1.setForeground(Color.WHITE);
-		terms1.setBorder(BorderFactory.createLineBorder(Color.red));
+		terms1.setBorderPainted(true);
+		//terms1.setBorder(BorderFactory.createLineBorder(Color.red));
 		etiqueta1.add(terms1);
 		
 		JRadioButton terms2 = new JRadioButton("No acepto los terminos");
@@ -429,7 +437,7 @@ public class Ventana extends JFrame{
 		terms2.setFont(texto);
 		terms2.setForeground(Color.WHITE);
 		terms2.setBorderPainted(true);
-		terms2.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+		//terms2.setBorder(BorderFactory.createLineBorder(Color.red, 3));
 		etiqueta1.add(terms2);
 		
 		terminosCheck.add(terms1);
@@ -448,6 +456,32 @@ public class Ventana extends JFrame{
 		enter.setFont(subtitulos);
 		etiqueta1.add(enter);
 		this.setVisible(true);
+		
+		enter.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				if (nombreInp.getText().equals("")||bioInp.getText().equals("")) {
+				    nombreInp.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+				    bioInp.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+				    JOptionPane.showMessageDialog(null, "Llene los espacios correspondientes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+
+				}
+				else {
+					nombreInp.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				    bioInp.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				}
+				if(!terms1.isSelected()) {
+					terms1.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+					JOptionPane.showMessageDialog(null, "Acepte los terminos y condiciones",  "Advertencia",JOptionPane.WARNING_MESSAGE);
+				}
+				else {
+					terms1.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				}
+			}});
 		
 		return login;
 	}

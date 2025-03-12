@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Ventana ventana = new Ventana("Login Page");
+		Ventana ventana = new Ventana("Login Page");
 		
 		//Calculadora calculadora = new Calculadora("Calculadora");
 		
@@ -15,7 +15,7 @@ public class Main {
 		
 		//Casa casa = new Casa("Casita");
 		
-		MarioWorld2 mundo = new MarioWorld2("Super Mario Bros");		
+		//MarioWorld2 mundo = new MarioWorld2("Super Mario Bros");		
 	}
 
 }

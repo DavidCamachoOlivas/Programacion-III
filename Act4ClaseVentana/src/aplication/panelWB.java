@@ -22,6 +22,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JCheckBox;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
@@ -265,6 +268,9 @@ public class panelWB extends JFrame {
 		btnNewButton.setBackground(new Color(128, 0, 128));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.setBounds(101, 34, 121, 47);
+		
+		
+		
 		panel_4.add(btnNewButton);
 		
 		JButton btnGuardar = new JButton("GUARDAR");
