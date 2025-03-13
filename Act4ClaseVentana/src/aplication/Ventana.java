@@ -47,6 +47,7 @@ public class Ventana extends JFrame{
         JMenu menu1 = new JMenu("Archivo");
         JMenu menu2 = new JMenu("Ayuda");
         JMenu menu3 = new JMenu("Cuenta");
+        JMenu menu4 = new JMenu("Usuarios");
         
         //menu-Archivo--------------------------------------------------------------------------
         JMenuItem op_new = new JMenuItem("Nuevo");
@@ -58,23 +59,42 @@ public class Ventana extends JFrame{
         menu1.add(op_close);
         
         //menu Ayuda----------------------------------------------------------------------------
-        JRadioButtonMenuItem op_help = new JRadioButtonMenuItem("Manual de usuario");
-        JCheckBoxMenuItem op_support = new JCheckBoxMenuItem("Soporte");
+        //JRadioButtonMenuItem op_help = new JRadioButtonMenuItem("Manual de usuario");
+        //JCheckBoxMenuItem op_support = new JCheckBoxMenuItem("Soporte");
         
-        menu2.add(op_help);
-        menu2.add(op_support);
+        JMenuItem comoCrearUser = new JMenuItem("Como crear cuenta");
+        JMenuItem comoAccederSistema = new JMenuItem("Como acceder al sistema");
+        JMenuItem comoContraseñaOlvidada = new JMenuItem("Como recuperar mi contraseña");
         
-        //menu inicio de sesion-----------------------------------------------------------------
+        //menu2.add(op_help);
+        //menu2.add(op_support);
+        menu2.add(comoCrearUser);
+        menu2.add(comoAccederSistema);
+        menu2.add(comoContraseñaOlvidada);
+        
+        //menu cuenta-----------------------------------------------------------------
+        JMenuItem signIn = new JMenuItem("Crear cuenta");
         JMenuItem logIn = new JMenuItem("Acceder");
-        JMenuItem logOut = new JMenuItem("Crear cuenta");
+        JMenuItem recuperarContra = new JMenuItem("Recuperar contraseña");
         
+        menu3.add(signIn);
         menu3.add(logIn);
-        menu3.add(logOut);
+        menu3.add(recuperarContra);
         
-        //añadir todo al menu
+        //menu usuarios
+        JMenuItem alta = new JMenuItem("Dar de alta a usuario");
+        JMenuItem baja = new JMenuItem("Dar de baja a usuario");
+        JMenuItem consultar = new JMenuItem("Consultar usuario");
+        
+        menu4.add(alta);
+        menu4.add(baja);
+        menu4.add(consultar);
+        
+        //añadir todo al menu-------------------------------------------------------------------
         barra.add(menu1);
         barra.add(menu2);
         barra.add(menu3);
+        barra.add(menu4);
         
         
         
@@ -87,8 +107,8 @@ public class Ventana extends JFrame{
 		this.repaint();
 		this.revalidate();
 		
-		
-		logIn.addActionListener(new ActionListener() {
+		//botones menu cuenta---------------------------------------------------------------------
+		signIn.addActionListener(new ActionListener() {
 
 			@SuppressWarnings("unlikely-arg-type")
 			@Override
@@ -98,7 +118,7 @@ public class Ventana extends JFrame{
 				manager("registro");
 			}});
 		
-		logOut.addActionListener(new ActionListener() {
+		logIn.addActionListener(new ActionListener() {
 
 			@SuppressWarnings("unlikely-arg-type")
 			@Override
@@ -106,6 +126,79 @@ public class Ventana extends JFrame{
 				// TODO Auto-generated method stub
 				
 				manager("login");
+			}});
+		
+		recuperarContra.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("contraOlvidada");
+			}});
+		
+		//botones menu usuarios---------------------------------------------------------------------
+		alta.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("alta");
+			}});
+		
+		baja.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("baja");
+			}});
+		
+		consultar.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("consultar");
+			}});
+	
+		//botones menu ayuda------------------------------------------------------------------------
+		
+		comoCrearUser.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("comoCrearUser");
+			}});
+		
+		comoAccederSistema.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("comoAccederSistema");
+			}});
+		
+		comoContraseñaOlvidada.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("comoContraseñaOlvidada");
 			}});
 	}
 	
@@ -565,21 +658,6 @@ public class Ventana extends JFrame{
 		return login;
 	}
 	
-	public void manager(String target) {
-		this.getContentPane().removeAll();
-		
-		if(target.equals("login")) {
-			this.add(login());
-		}
-		if(target.equals("registro")) {
-			this.add(registro());
-		}
-		
-		this.repaint();
-		this.revalidate();
-	}
-
-
 	public JPanel usuarios() {
 		
 		Font titulos = new Font("Inika", Font.BOLD, 32);
@@ -688,6 +766,308 @@ public class Ventana extends JFrame{
 		
 	}
 	
+	public JPanel recuperacionCuenta() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo1 = new JPanel();
+		fondo1.setBounds(0, 0, 750, 700);
+		fondo1.setLayout(null);
+		fondo1.setVisible(true);
+		fondo1.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo1.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Recuperación de cuenta");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		fondo1.add(titulo);
+		
+		return fondo1;
+	}
 	
+	public JPanel altaUser() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Alta de usuarios");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
 	
+	public JPanel bajaUser() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Baja de usuarios");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
+	
+	public JPanel consultaUser() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Consulta de usuarios");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
+	
+	public JPanel manualCrearUser() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Cómo crear un usuario:");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
+	
+	public JPanel manualAcceder() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Cómo acceder al sistema");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
+	
+	public JPanel manualContraOlvidada() {
+		Font titulos = new Font("Inika", Font.BOLD, 32);
+		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
+		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
+		
+		JPanel fondo = new JPanel();
+		fondo.setBounds(0, 0, 750, 700);
+		fondo.setLayout(null);
+		fondo.setVisible(true);
+		fondo.setOpaque(false);
+		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
+		JLabel fondoImg = new JLabel(img);
+		fondoImg.setBounds(0, 0, 750, 700);
+		
+		JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(false);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);
+		
+		JLabel titulo = new JLabel("Cómo recuperar mi contraseña");
+		titulo.setSize(500, 50);
+		titulo.setLocation(50,40);
+		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setHorizontalAlignment(JLabel.CENTER); 
+		titulo.setVerticalAlignment(JLabel.CENTER); 
+		titulo.setVisible(true);
+		titulo.setOpaque(true);
+		titulo.setForeground(Color.black);
+		titulo.setFont(titulos);
+		
+		return fondo;
+	}
+	
+	public void manager(String target) {
+		this.getContentPane().removeAll();
+		//cuenta-------------------------------------------
+		if(target.equals("login")) {
+			this.add(login());
+		}
+		if(target.equals("registro")) {
+			this.add(registro());
+		}
+		if(target.equals("contraOlvidada")) {
+			this.add(recuperacionCuenta());
+		}
+		//usuarios-----------------------------------------
+		if(target.equals("alta")) {
+			this.add(altaUser());
+		}
+		if(target.equals("baja")) {
+			this.add(bajaUser());
+		}
+		if(target.equals("consultar")) {
+			this.add(consultaUser());
+		}
+		//ayuda--------------------------------------------
+		if(target.equals("comoCrearUser")) {
+			this.add(manualCrearUser());
+		}
+		if(target.equals("comoAccederSistema")) {
+			this.add(manualAcceder());
+		}
+		if(target.equals("comoContraseñaOlvidada")) {
+			this.add(manualContraOlvidada());
+		}
+		
+		
+		this.repaint();
+		this.revalidate();
+	}
 }
