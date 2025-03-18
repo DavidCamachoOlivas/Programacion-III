@@ -187,7 +187,7 @@ public class ExamenU2 extends JFrame {
 				{"Agua", "3","17","58"},
 				{"Cereal", "6","56","336"},
 				{"Leche", "8","22","176"},
-				{"Agua", "3","17","58"}
+				{"Refresco", "3","17","58"}
 		};
 		table = new JTable(data,columnNames);
 		listadoFacturas.setLayout(null);
