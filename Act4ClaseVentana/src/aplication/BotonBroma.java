@@ -8,6 +8,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class BotonBroma extends JFrame{
@@ -61,15 +62,23 @@ public class BotonBroma extends JFrame{
 				float g = randy.nextFloat();
 				float b = randy.nextFloat();
 				
-				//Color randomColor = new Color(r, g, b);
+				Color randomColor = new Color(r, g, b);
 
 				JButton botonCreado = new JButton("palabra");
 				botonCreado.setBounds(x,y,ancho,alto);
 				botonCreado.setBackground(new Color(r, g, b));
 				botonCreado.setVisible(true);
 				botonCreado.setOpaque(true);
+				botonCreado.addActionListener(new ActionListener() {
+
+					@SuppressWarnings("unlikely-arg-type")
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "El color es "+ randomColor, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+						}
+					});
 				
-				
+				//
 				etiqueta1.add(botonCreado);
 				
 				panel.revalidate();
