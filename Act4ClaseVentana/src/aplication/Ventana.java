@@ -44,20 +44,20 @@ public class Ventana extends JFrame{
         //crear menu
         JMenuBar barra = new JMenuBar();
         
-        JMenu menu1 = new JMenu("Archivo");
+        //JMenu menu1 = new JMenu("Archivo");
         JMenu menu2 = new JMenu("Ayuda");
         JMenu menu3 = new JMenu("Cuenta");
         JMenu menu4 = new JMenu("Usuarios");
         
         //menu-Archivo--------------------------------------------------------------------------
-        JMenuItem op_new = new JMenuItem("Nuevo");
+        /*JMenuItem op_new = new JMenuItem("Nuevo");
         JMenuItem op_open = new JMenuItem("Abrir");
         JMenuItem op_close = new JMenuItem("Cerrar");
         
         menu1.add(op_new);
         menu1.add(op_open);
         menu1.add(op_close);
-        
+        */
         //menu Ayuda----------------------------------------------------------------------------
         //JRadioButtonMenuItem op_help = new JRadioButtonMenuItem("Manual de usuario");
         //JCheckBoxMenuItem op_support = new JCheckBoxMenuItem("Soporte");
@@ -91,7 +91,7 @@ public class Ventana extends JFrame{
         menu4.add(consultar);
         
         //añadir todo al menu-------------------------------------------------------------------
-        barra.add(menu1);
+       // barra.add(menu1);
         barra.add(menu2);
         barra.add(menu3);
         barra.add(menu4);
@@ -106,6 +106,7 @@ public class Ventana extends JFrame{
         this.setVisible(true);
 		this.repaint();
 		this.revalidate();
+		
 		
 		//botones menu cuenta---------------------------------------------------------------------
 		signIn.addActionListener(new ActionListener() {
@@ -252,8 +253,9 @@ public class Ventana extends JFrame{
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
-		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setOpaque(false);
+		//titulo.setBackground(null);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
 		etiqueta1.add(titulo);
@@ -376,9 +378,11 @@ public class Ventana extends JFrame{
 		ir_a_registro.setBackground(null);
 		ir_a_registro.setVisible(true);
 		ir_a_registro.setOpaque(true);
-		ir_a_registro.setForeground(Color.black);
+		ir_a_registro.setForeground(Color.white);
 		ir_a_registro.setBorderPainted(false);
 		ir_a_registro.setFont(texto);
+		//ir_a_registro.setFocusPainted(false);
+		ir_a_registro.setContentAreaFilled(false);
 		
 		etiqueta1.add(ir_a_registro);
 		
@@ -780,28 +784,46 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo1.add(etiqueta1);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo1.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Recuperación de cuenta");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
-		fondo1.add(titulo);
 		
+		
+		etiqueta1.add(titulo);
+		fondo1.add(login);
 		return fondo1;
 	}
 	
@@ -810,37 +832,55 @@ public class Ventana extends JFrame{
 		Font subtitulos = new Font("Inika", Font.ROMAN_BASELINE, 22);
 		Font texto = new Font("Inika", Font.ROMAN_BASELINE, 16);
 		
-		JPanel fondo = new JPanel();
-		fondo.setBounds(0, 0, 750, 700);
-		fondo.setLayout(null);
-		fondo.setVisible(true);
-		fondo.setOpaque(false);
+		JPanel fondo2 = new JPanel();
+		fondo2.setBounds(0, 0, 750, 700);
+		fondo2.setLayout(null);
+		fondo2.setVisible(true);
+		fondo2.setOpaque(false);
 		ImageIcon img = new ImageIcon(new ImageIcon("fondo.jpg").getImage().getScaledInstance(750, 700, java.awt.Image.SCALE_SMOOTH));
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1altaUser = new JPanel();
+		etiqueta1altaUser.setSize(600, 600);
+		etiqueta1altaUser.setLocation(50, 30);
+		etiqueta1altaUser.setBackground(Color.decode("#2c8444"));
+		etiqueta1altaUser.setVisible(true);
+		etiqueta1altaUser.setOpaque(true);
+		//etiqueta1altaUser.setBackground(Color.black);
+		etiqueta1altaUser.setForeground(Color.white);//decode("#bdc2bc")); 
+		etiqueta1altaUser.setLayout(null);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Alta de usuarios");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
-		return fondo;
+		etiqueta1.add(titulo);
+		fondo2.add(login);
+		return fondo2;
 	}
 	
 	public JPanel bajaUser() {
@@ -857,27 +897,46 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
+		
 		
 		JLabel titulo = new JLabel("Baja de usuarios");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		etiqueta1.add(titulo);
+		fondo.add(login);
 		return fondo;
 	}
 	
@@ -895,27 +954,45 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Consulta de usuarios");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		etiqueta1.add(titulo);
+		fondo.add(login);
 		return fondo;
 	}
 	
@@ -933,27 +1010,45 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Cómo crear un usuario:");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		fondo.add(login);
+		etiqueta1.add(titulo);
 		return fondo;
 	}
 	
@@ -971,27 +1066,46 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);*/
+		
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Cómo acceder al sistema");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		fondo.add(login);
+		etiqueta1.add(titulo);
 		return fondo;
 	}
 	
@@ -1009,27 +1123,45 @@ public class Ventana extends JFrame{
 		JLabel fondoImg = new JLabel(img);
 		fondoImg.setBounds(0, 0, 750, 700);
 		
+		/*JPanel etiqueta1 = new JPanel();
+		etiqueta1.setSize(600, 600);
+		etiqueta1.setLocation(50, 30);
+		etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setVisible(true);
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setLayout(null);
+		fondo.add(etiqueta1);*/
+		JPanel login = new JPanel();
+		login.setLocation(0,0);
+		login.setSize(1000, 700);
+		login.setOpaque(true);
+		login.setBackground(Color.black);
+		login.setVisible(true);
+		login.setLayout(null);
 		JPanel etiqueta1 = new JPanel();
 		etiqueta1.setSize(600, 600);
 		etiqueta1.setLocation(50, 30);
-		//etiqueta1.setBackground(Color.decode("#2c8444"));
+		etiqueta1.setBackground(Color.decode("#2c8444"));
 		etiqueta1.setVisible(true);
-		etiqueta1.setOpaque(false);
-		etiqueta1.setForeground(Color.black);//decode("#bdc2bc")); 
+		etiqueta1.setOpaque(true);
+		etiqueta1.setForeground(Color.decode("#bdc2bc")); 
 		etiqueta1.setLayout(null);
-		fondo.add(etiqueta1);
+		login.add(etiqueta1);
 		
 		JLabel titulo = new JLabel("Cómo recuperar mi contraseña");
 		titulo.setSize(500, 50);
 		titulo.setLocation(50,40);
-		//titulo.setBackground(Color.decode("#2c8444"));
+		titulo.setBackground(Color.decode("#2c8444"));
 		titulo.setHorizontalAlignment(JLabel.CENTER); 
 		titulo.setVerticalAlignment(JLabel.CENTER); 
 		titulo.setVisible(true);
 		titulo.setOpaque(true);
-		titulo.setForeground(Color.black);
+		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		fondo.add(login);
+		etiqueta1.add(titulo);
 		return fondo;
 	}
 	
