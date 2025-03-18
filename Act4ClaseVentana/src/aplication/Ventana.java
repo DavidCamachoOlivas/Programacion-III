@@ -821,6 +821,87 @@ public class Ventana extends JFrame{
 		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+JLabel nombre = new JLabel("Nombre de usuario:");
+		
+		nombre.setSize(500, 50);
+		nombre.setLocation(20,130);
+		//nombre.setBackground(Color.decode("#2c8444"));
+		nombre.setHorizontalAlignment(JLabel.LEFT); 
+		nombre.setVerticalAlignment(JLabel.CENTER); 
+		nombre.setVisible(true);
+		nombre.setOpaque(true);
+		nombre.setForeground(Color.black);
+		nombre.setFont(subtitulos);
+		etiqueta1.add(nombre);
+		
+		JTextField nombreInp = new JTextField();
+		
+		nombreInp.setBounds(20, 180, 500, 40);
+		nombreInp.setBackground(Color.white);
+		nombreInp.setForeground(Color.black);
+		nombreInp.setVisible(true);
+		nombreInp.setOpaque(true);
+		nombreInp.setFont(subtitulos);
+		nombreInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(nombreInp);
+		
+		JLabel correo = new JLabel("Correo:");
+		
+		correo.setSize(500, 50);
+		correo.setLocation(20,260);
+		//contraseña.setBackground(Color.decode("#2c8444"));
+		correo.setHorizontalAlignment(JLabel.LEFT); 
+		correo.setVerticalAlignment(JLabel.CENTER); 
+		correo.setVisible(true);
+		correo.setOpaque(true);
+		correo.setForeground(Color.black);
+		correo.setFont(subtitulos);
+		etiqueta1.add(correo);
+		
+		JTextField correoInp = new JTextField();
+		
+		correoInp.setBounds(20, 310, 500, 40);
+		correoInp.setBackground(Color.white);
+		correoInp.setForeground(Color.black);
+		correoInp.setVisible(true);
+		correoInp.setOpaque(true);
+		correoInp.setFont(subtitulos);
+		correoInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(correoInp);
+		
+		JButton enter = new JButton();
+		
+		enter.setBounds(200, 370, 160, 40);
+		enter.setText("Recuperar");
+		enter.setVisible(true);
+		enter.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		enter.setForeground(Color.black);
+		enter.setFont(subtitulos);
+		etiqueta1.add(enter);
+		this.setVisible(true);
+		
+		JButton regresar = new JButton();
+		
+		regresar.setBounds(20, 532, 160, 40);
+		regresar.setText("Regresar");
+		regresar.setVisible(true);
+		regresar.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		regresar.setForeground(Color.black);
+		regresar.setFont(subtitulos);
+		etiqueta1.add(regresar);
+		this.setVisible(true);
+		
+		regresar.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
 		
 		etiqueta1.add(titulo);
 		fondo1.add(login);
@@ -877,6 +958,113 @@ public class Ventana extends JFrame{
 		titulo.setOpaque(true);
 		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
+		
+
+		JLabel nombre = new JLabel("Nombre de usuario:");
+		
+		nombre.setSize(500, 50);
+		nombre.setLocation(20,130);
+		//nombre.setBackground(Color.decode("#2c8444"));
+		nombre.setHorizontalAlignment(JLabel.LEFT); 
+		nombre.setVerticalAlignment(JLabel.CENTER); 
+		nombre.setVisible(true);
+		nombre.setOpaque(true);
+		nombre.setForeground(Color.black);
+		nombre.setFont(subtitulos);
+		etiqueta1.add(nombre);
+		
+		JTextField nombreInp = new JTextField();
+		
+		nombreInp.setBounds(20, 180, 500, 40);
+		nombreInp.setBackground(Color.white);
+		nombreInp.setForeground(Color.black);
+		nombreInp.setVisible(true);
+		nombreInp.setOpaque(true);
+		nombreInp.setFont(subtitulos);
+		nombreInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(nombreInp);
+		
+		JLabel contraseña = new JLabel("Contraseña:");
+		
+		contraseña.setSize(500, 50);
+		contraseña.setLocation(20,260);
+		//contraseña.setBackground(Color.decode("#2c8444"));
+		contraseña.setHorizontalAlignment(JLabel.LEFT); 
+		contraseña.setVerticalAlignment(JLabel.CENTER); 
+		contraseña.setVisible(true);
+		contraseña.setOpaque(true);
+		contraseña.setForeground(Color.black);
+		contraseña.setFont(subtitulos);
+		etiqueta1.add(contraseña);
+		
+		JPasswordField contraInp = new JPasswordField();
+		
+		contraInp.setBounds(20, 310, 500, 40);
+		contraInp.setBackground(Color.white);
+		contraInp.setForeground(Color.black);
+		contraInp.setVisible(true);
+		contraInp.setOpaque(true);
+		contraInp.setFont(subtitulos);
+		contraInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(contraInp);
+		
+		JLabel confirmarContraseña = new JLabel("Confirma tu contraseña:");
+		
+		confirmarContraseña.setSize(500, 50);
+		confirmarContraseña.setLocation(20,390);
+		//contraseña.setBackground(Color.decode("#2c8444"));
+		confirmarContraseña.setHorizontalAlignment(JLabel.LEFT); 
+		confirmarContraseña.setVerticalAlignment(JLabel.CENTER); 
+		confirmarContraseña.setVisible(true);
+		confirmarContraseña.setOpaque(true);
+		confirmarContraseña.setForeground(Color.black);
+		confirmarContraseña.setFont(subtitulos);
+		etiqueta1.add(confirmarContraseña);
+		
+		JPasswordField confirmarContraInp = new JPasswordField();
+		
+		confirmarContraInp.setBounds(20, 440, 500, 40);
+		confirmarContraInp.setBackground(Color.white);
+		confirmarContraInp.setForeground(Color.black);
+		confirmarContraInp.setVisible(true);
+		confirmarContraInp.setOpaque(true);
+		confirmarContraInp.setFont(subtitulos);
+		confirmarContraInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(confirmarContraInp);
+		
+		JButton enter = new JButton();
+		
+		enter.setBounds(400, 532, 160, 40);
+		enter.setText("Crear");
+		enter.setVisible(true);
+		enter.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		enter.setForeground(Color.black);
+		enter.setFont(subtitulos);
+		etiqueta1.add(enter);
+		this.setVisible(true);
+		
+		JButton regresar = new JButton();
+		
+		regresar.setBounds(20, 532, 160, 40);
+		regresar.setText("Regresar");
+		regresar.setVisible(true);
+		regresar.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		regresar.setForeground(Color.black);
+		regresar.setFont(subtitulos);
+		etiqueta1.add(regresar);
+		this.setVisible(true);
+		
+		regresar.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
 		
 		etiqueta1.add(titulo);
 		fondo2.add(login);
@@ -935,6 +1123,88 @@ public class Ventana extends JFrame{
 		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		JLabel nombre = new JLabel("Nombre de usuario:");
+		
+		nombre.setSize(500, 50);
+		nombre.setLocation(20,130);
+		//nombre.setBackground(Color.decode("#2c8444"));
+		nombre.setHorizontalAlignment(JLabel.LEFT); 
+		nombre.setVerticalAlignment(JLabel.CENTER); 
+		nombre.setVisible(true);
+		nombre.setOpaque(true);
+		nombre.setForeground(Color.black);
+		nombre.setFont(subtitulos);
+		etiqueta1.add(nombre);
+		
+		JTextField nombreInp = new JTextField();
+		
+		nombreInp.setBounds(20, 180, 500, 40);
+		nombreInp.setBackground(Color.white);
+		nombreInp.setForeground(Color.black);
+		nombreInp.setVisible(true);
+		nombreInp.setOpaque(true);
+		nombreInp.setFont(subtitulos);
+		nombreInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(nombreInp);
+		
+		JLabel contraseña = new JLabel("Contraseña:");
+		
+		contraseña.setSize(500, 50);
+		contraseña.setLocation(20,260);
+		//contraseña.setBackground(Color.decode("#2c8444"));
+		contraseña.setHorizontalAlignment(JLabel.LEFT); 
+		contraseña.setVerticalAlignment(JLabel.CENTER); 
+		contraseña.setVisible(true);
+		contraseña.setOpaque(true);
+		contraseña.setForeground(Color.black);
+		contraseña.setFont(subtitulos);
+		etiqueta1.add(contraseña);
+		
+		JPasswordField contraInp = new JPasswordField();
+		
+		contraInp.setBounds(20, 310, 500, 40);
+		contraInp.setBackground(Color.white);
+		contraInp.setForeground(Color.black);
+		contraInp.setVisible(true);
+		contraInp.setOpaque(true);
+		contraInp.setFont(subtitulos);
+		contraInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(contraInp);
+		
+		JButton enter = new JButton();
+		
+		enter.setBounds(200, 370, 160, 40);
+		enter.setText("Eliminar");
+		enter.setVisible(true);
+		enter.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		enter.setForeground(Color.black);
+		enter.setFont(subtitulos);
+		etiqueta1.add(enter);
+		this.setVisible(true);
+		
+		JButton regresar = new JButton();
+		
+		regresar.setBounds(20, 532, 160, 40);
+		regresar.setText("Regresar");
+		regresar.setVisible(true);
+		regresar.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		regresar.setForeground(Color.black);
+		regresar.setFont(subtitulos);
+		etiqueta1.add(regresar);
+		this.setVisible(true);
+		
+		regresar.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
+		
 		etiqueta1.add(titulo);
 		fondo.add(login);
 		return fondo;
@@ -990,6 +1260,64 @@ public class Ventana extends JFrame{
 		titulo.setOpaque(true);
 		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
+		
+JLabel nombre = new JLabel("Nombre de usuario:");
+		
+		nombre.setSize(500, 50);
+		nombre.setLocation(20,130);
+		//nombre.setBackground(Color.decode("#2c8444"));
+		nombre.setHorizontalAlignment(JLabel.LEFT); 
+		nombre.setVerticalAlignment(JLabel.CENTER); 
+		nombre.setVisible(true);
+		nombre.setOpaque(true);
+		nombre.setForeground(Color.black);
+		nombre.setFont(subtitulos);
+		etiqueta1.add(nombre);
+		
+		JTextField nombreInp = new JTextField();
+		
+		nombreInp.setBounds(20, 180, 500, 40);
+		nombreInp.setBackground(Color.white);
+		nombreInp.setForeground(Color.black);
+		nombreInp.setVisible(true);
+		nombreInp.setOpaque(true);
+		nombreInp.setFont(subtitulos);
+		nombreInp.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
+		etiqueta1.add(nombreInp);
+		
+JButton enter = new JButton();
+		
+		enter.setBounds(200, 300, 160, 40);
+		enter.setText("Consultar");
+		enter.setVisible(true);
+		enter.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		enter.setForeground(Color.black);
+		enter.setFont(subtitulos);
+		etiqueta1.add(enter);
+		this.setVisible(true);
+		
+		JButton regresar = new JButton();
+		
+		regresar.setBounds(20, 532, 160, 40);
+		regresar.setText("Regresar");
+		regresar.setVisible(true);
+		regresar.setOpaque(true);
+		//enter.setBackground(Color.decode("#216233"));
+		regresar.setForeground(Color.black);
+		regresar.setFont(subtitulos);
+		etiqueta1.add(regresar);
+		this.setVisible(true);
+		
+		regresar.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				manager("login");
+			}});
 		
 		etiqueta1.add(titulo);
 		fondo.add(login);
@@ -1047,8 +1375,21 @@ public class Ventana extends JFrame{
 		titulo.setForeground(Color.white);
 		titulo.setFont(titulos);
 		
+		JLabel texto1 = new JLabel("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</html>");
+		texto1.setSize(500, 200);
+		texto1.setLocation(50,300);
+		texto1.setBackground(Color.decode("#2c8444"));
+		texto1.setHorizontalAlignment(JLabel.CENTER); 
+		texto1.setVerticalAlignment(JLabel.CENTER); 
+		texto1.setVisible(true);
+		texto1.setOpaque(true);
+		texto1.setForeground(Color.white);
+		texto1.setFont(subtitulos);
 		fondo.add(login);
-		etiqueta1.add(titulo);
+		
+		etiqueta1.add(texto1);
+		etiqueta1.add(texto1);
+		
 		return fondo;
 	}
 	
