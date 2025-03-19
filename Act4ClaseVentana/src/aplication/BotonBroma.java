@@ -21,6 +21,7 @@ public class BotonBroma extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setBounds(0,0,700,700);
 		panel.setLayout(null);
+		panel.setBackground(Color.black);
 		panel.setVisible(true);
 		panel.setOpaque(true);
 		add(panel);
@@ -62,6 +63,7 @@ public class BotonBroma extends JFrame{
 				float g = randy.nextFloat();
 				float b = randy.nextFloat();
 				
+			
 				Color randomColor = new Color(r, g, b);
 
 				JButton botonCreado = new JButton("palabra");
@@ -71,10 +73,17 @@ public class BotonBroma extends JFrame{
 				botonCreado.setOpaque(true);
 				botonCreado.addActionListener(new ActionListener() {
 
-					@SuppressWarnings("unlikely-arg-type")
+					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(null, "El color es "+ randomColor, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+						int i=0;
+						i=JOptionPane.showConfirmDialog(null,"choose one", "choose one", JOptionPane.YES_NO_OPTION);
+						
+						if(i==JOptionPane.YES_OPTION){
+							etiqueta1.remove(botonCreado);
+							etiqueta1.revalidate();
+							etiqueta1.repaint();
+						}
 						}
 					});
 				
