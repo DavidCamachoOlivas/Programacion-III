@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,8 +49,11 @@ public class juegoRompecabezas15 extends JFrame {
 						"13","14","15",""};
 	
 	List<String> lista = Arrays.asList(numeros);
-	private JButton BotonIniciar;
-	private JButton botonNuevoTablero;
+	private JButton BotonReIniciar;
+	private JLabel lblNewLabel_1;
+	
+	int noMovimientos=0;
+	private JButton botonIniciar;
 	
 	/**
 	 * Launch the application.
@@ -71,26 +76,47 @@ public class juegoRompecabezas15 extends JFrame {
 	 */
 	public juegoRompecabezas15() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 623);
+		setBounds(100, 100, 700, 623);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		JPanel header = new JPanel();
+		header.setBounds(5, 5, 692, 35);
 		header.setBackground(new Color(0, 128, 128));
-		contentPane.add(header, BorderLayout.NORTH);
+		contentPane.add(header);
 		
 		JLabel lblNewLabel = new JLabel("Rompecabezas númerico");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		header.add(lblNewLabel);
 		
+		JPanel right = new JPanel();
+		right.setBounds(471, 40, 226, 498);
+		right.setBackground(new Color(0, 128, 128));
+		contentPane.add(right);
+		
+		JPanel left = new JPanel();
+		left.setBounds(5, 40, 10, 498);
+		left.setBackground(new Color(0, 128, 128));
+		contentPane.add(left);
+		right.setLayout(null);
+		
+		
+		JLabel lblNewLabel_1 = new JLabel("No. Movimientos: "+noMovimientos);
+		lblNewLabel_1.setBounds(23, 38, 193, 49);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		right.add(lblNewLabel_1);
+		
+		
+		
 		JPanel body = new JPanel();
+		body.setBounds(15, 40, 456, 498);
 		body.setBackground(new Color(0, 128, 128));
-		contentPane.add(body, BorderLayout.CENTER);
+		contentPane.add(body);
 		body.setLayout(new GridLayout(4, 4, 5, 5));
 		
 		btnNewButton_1 = new JButton(numeros[0]);
@@ -102,13 +128,19 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_2.getText().equals("")) {
 					 btnNewButton_2.setText(btnNewButton_1.getText());
 					 btnNewButton_1.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_5.getText().equals("")) {
 					 btnNewButton_5.setText(btnNewButton_1.getText());
 					 btnNewButton_1.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
-				 body.repaint();
-				 body.revalidate();
+				
+				 ganar();
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -121,17 +153,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_1.getText().equals("")) {
 					 btnNewButton_1.setText(btnNewButton_2.getText());
 					 btnNewButton_2.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_3.getText().equals("")) {
 					 btnNewButton_3.setText(btnNewButton_2.getText());
 					 btnNewButton_2.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_6.getText().equals("")) {
 					 btnNewButton_6.setText(btnNewButton_2.getText());
 					 btnNewButton_2.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
-				 body.repaint();
-				 body.revalidate();
+				 
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -144,17 +185,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_2.getText().equals("")) {
 					 btnNewButton_2.setText(btnNewButton_3.getText());
 					 btnNewButton_3.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_4.getText().equals("")) {
 					 btnNewButton_4.setText(btnNewButton_3.getText());
 					 btnNewButton_3.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_7.getText().equals("")) {
 					 btnNewButton_7.setText(btnNewButton_3.getText());
 					 btnNewButton_3.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
-				 body.repaint();
-				 body.revalidate();
+				 
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -168,14 +218,20 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_3.getText().equals("")) {
 					 btnNewButton_3.setText(btnNewButton_4.getText());
 					 btnNewButton_4.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_8.getText().equals("")) {
 					 btnNewButton_8.setText(btnNewButton_4.getText());
 					 btnNewButton_4.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -188,18 +244,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_1.getText().equals("")) {
 					 btnNewButton_1.setText(btnNewButton_5.getText());
 					 btnNewButton_5.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_6.getText().equals("")) {
 					 btnNewButton_6.setText(btnNewButton_5.getText());
 					 btnNewButton_5.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_9.getText().equals("")) {
 					 btnNewButton_9.setText(btnNewButton_5.getText());
 					 btnNewButton_5.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -212,22 +276,32 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_5.getText().equals("")) {
 					 btnNewButton_5.setText(btnNewButton_6.getText());
 					 btnNewButton_6.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_2.getText().equals("")) {
 					 btnNewButton_2.setText(btnNewButton_6.getText());
 					 btnNewButton_6.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_7.getText().equals("")) {
 					 btnNewButton_7.setText(btnNewButton_6.getText());
 					 btnNewButton_6.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_10.getText().equals("")) {
 					 btnNewButton_10.setText(btnNewButton_6.getText());
 					 btnNewButton_6.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -240,22 +314,32 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_6.getText().equals("")) {
 					 btnNewButton_6.setText(btnNewButton_7.getText());
 					 btnNewButton_7.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_3.getText().equals("")) {
 					 btnNewButton_3.setText(btnNewButton_7.getText());
 					 btnNewButton_7.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_8.getText().equals("")) {
 					 btnNewButton_8.setText(btnNewButton_7.getText());
 					 btnNewButton_7.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_11.getText().equals("")) {
 					 btnNewButton_11.setText(btnNewButton_7.getText());
 					 btnNewButton_7.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -269,19 +353,27 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_4.getText().equals("")) {
 					 btnNewButton_4.setText(btnNewButton_8.getText());
 					 btnNewButton_8.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_7.getText().equals("")) {
 					 btnNewButton_7.setText(btnNewButton_8.getText());
 					 btnNewButton_8.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_12.getText().equals("")) {
 					 btnNewButton_12.setText(btnNewButton_8.getText());
 					 btnNewButton_8.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
+				 
+				 ganar();
 				
 				 
-				 body.repaint();
-				 body.revalidate();
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -294,19 +386,27 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_5.getText().equals("")) {
 					 btnNewButton_5.setText(btnNewButton_9.getText());
 					 btnNewButton_9.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_10.getText().equals("")) {
 					 btnNewButton_10.setText(btnNewButton_9.getText());
 					 btnNewButton_9.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_13.getText().equals("")) {
 					 btnNewButton_13.setText(btnNewButton_9.getText());
 					 btnNewButton_9.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
+				 
+				 ganar();
 				
 				 
-				 body.repaint();
-				 body.revalidate();
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -319,22 +419,32 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_9.getText().equals("")) {
 					 btnNewButton_9.setText(btnNewButton_10.getText());
 					 btnNewButton_10.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_6.getText().equals("")) {
 					 btnNewButton_6.setText(btnNewButton_10.getText());
 					 btnNewButton_10.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_11.getText().equals("")) {
 					 btnNewButton_11.setText(btnNewButton_10.getText());
 					 btnNewButton_10.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_14.getText().equals("")) {
 					 btnNewButton_14.setText(btnNewButton_10.getText());
 					 btnNewButton_10.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 	
@@ -347,22 +457,32 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_10.getText().equals("")) {
 					 btnNewButton_10.setText(btnNewButton_11.getText());
 					 btnNewButton_11.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_7.getText().equals("")) {
 					 btnNewButton_7.setText(btnNewButton_11.getText());
 					 btnNewButton_11.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_12.getText().equals("")) {
 					 btnNewButton_12.setText(btnNewButton_11.getText());
 					 btnNewButton_11.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_15.getText().equals("")) {
 					 btnNewButton_15.setText(btnNewButton_11.getText());
 					 btnNewButton_11.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -375,18 +495,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_11.getText().equals("")) {
 					 btnNewButton_11.setText(btnNewButton_12.getText());
 					 btnNewButton_12.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_8.getText().equals("")) {
 					 btnNewButton_8.setText(btnNewButton_12.getText());
 					 btnNewButton_12.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_16.getText().equals("")) {
 					 btnNewButton_16.setText(btnNewButton_12.getText());
 					 btnNewButton_12.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -400,14 +528,20 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_9.getText().equals("")) {
 					 btnNewButton_9.setText(btnNewButton_13.getText());
 					 btnNewButton_13.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_14.getText().equals("")) {
 					 btnNewButton_14.setText(btnNewButton_13.getText());
 					 btnNewButton_13.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -420,18 +554,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_13.getText().equals("")) {
 					 btnNewButton_13.setText(btnNewButton_14.getText());
 					 btnNewButton_14.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_10.getText().equals("")) {
 					 btnNewButton_10.setText(btnNewButton_14.getText());
 					 btnNewButton_14.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_15.getText().equals("")) {
 					 btnNewButton_15.setText(btnNewButton_14.getText());
 					 btnNewButton_14.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -444,18 +586,26 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_14.getText().equals("")) {
 					 btnNewButton_14.setText(btnNewButton_15.getText());
 					 btnNewButton_15.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_11.getText().equals("")) {
 					 btnNewButton_11.setText(btnNewButton_15.getText());
 					 btnNewButton_15.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_16.getText().equals("")) {
 					 btnNewButton_16.setText(btnNewButton_15.getText());
 					 btnNewButton_15.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 
-				 body.repaint();
-				 body.revalidate();
+				 ganar();
+				 
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
@@ -468,27 +618,36 @@ public class juegoRompecabezas15 extends JFrame {
 				 if(btnNewButton_15.getText().equals("")) {
 					 btnNewButton_15.setText(btnNewButton_16.getText());
 					 btnNewButton_16.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
 				 if(btnNewButton_12.getText().equals("")) {
 					 btnNewButton_12.setText(btnNewButton_16.getText());
 					 btnNewButton_16.setText("");
+					 noMovimientos++;
+					 lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
 				 }
-				
-				 body.repaint();
-				 body.revalidate();
+				 
+				 ganar();
+
+				 contentPane.repaint();
+				 contentPane.revalidate();
 				}
 			});
 		
 		
 		JPanel footer = new JPanel();
+		footer.setBounds(5, 538, 466, 43);
 		footer.setBackground(new Color(0, 128, 128));
-		contentPane.add(footer, BorderLayout.SOUTH);
+		contentPane.add(footer);
 		footer.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		BotonIniciar = new JButton("Iniciar");
-		BotonIniciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		footer.add(BotonIniciar);
-		BotonIniciar.addActionListener(new ActionListener() {
+		botonIniciar = new JButton("Iniciar");
+		botonIniciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		botonIniciar.setBounds(23, 127, 135, 33);
+		right.add(botonIniciar);
+		
+		botonIniciar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 Collections.shuffle(lista);
@@ -508,23 +667,182 @@ public class juegoRompecabezas15 extends JFrame {
 			        btnNewButton_14.setText(lista.get(13));
 			        btnNewButton_15.setText(lista.get(14));
 			        btnNewButton_16.setText(lista.get(15)); 
-				 body.repaint();
-				 body.revalidate();
+			        
+			        btnNewButton_1.setEnabled(true);
+					btnNewButton_2.setEnabled(true);
+					btnNewButton_3.setEnabled(true);
+					btnNewButton_4.setEnabled(true);
+					btnNewButton_5.setEnabled(true);
+					btnNewButton_6.setEnabled(true);
+					btnNewButton_7.setEnabled(true);
+					btnNewButton_8.setEnabled(true);
+					btnNewButton_9.setEnabled(true);
+					btnNewButton_10.setEnabled(true);
+					btnNewButton_11.setEnabled(true);
+					btnNewButton_12.setEnabled(true);
+					btnNewButton_13.setEnabled(true);
+					btnNewButton_14.setEnabled(true);
+					btnNewButton_15.setEnabled(true);
+					btnNewButton_16.setEnabled(true);
+					
+					noMovimientos=0;
+					lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
+					contentPane.repaint();
+					contentPane.revalidate();
+				}
+			});
+		
+		JButton botonPausar = new JButton("Pausar");
+		botonPausar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		botonPausar.setBounds(23, 179, 135, 33);
+		right.add(botonPausar);
+		botonPausar.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	
+	        	btnNewButton_1.setEnabled(false);
+				btnNewButton_2.setEnabled(false);
+				btnNewButton_3.setEnabled(false);
+				btnNewButton_4.setEnabled(false);
+				btnNewButton_5.setEnabled(false);
+				btnNewButton_6.setEnabled(false);
+				btnNewButton_7.setEnabled(false);
+				btnNewButton_8.setEnabled(false);
+				btnNewButton_9.setEnabled(false);
+				btnNewButton_10.setEnabled(false);
+				btnNewButton_11.setEnabled(false);
+				btnNewButton_12.setEnabled(false);
+				btnNewButton_13.setEnabled(false);
+				btnNewButton_14.setEnabled(false);
+				btnNewButton_15.setEnabled(false);
+				btnNewButton_16.setEnabled(false);
+		        
+		    }
+		});
+		JButton botonReanudar = new JButton("Reanudar");
+		botonReanudar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		botonReanudar.setBounds(23, 232, 135, 33);
+		right.add(botonReanudar);
+		botonReanudar.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	
+		    	btnNewButton_1.setEnabled(true);
+				btnNewButton_2.setEnabled(true);
+				btnNewButton_3.setEnabled(true);
+				btnNewButton_4.setEnabled(true);
+				btnNewButton_5.setEnabled(true);
+				btnNewButton_6.setEnabled(true);
+				btnNewButton_7.setEnabled(true);
+				btnNewButton_8.setEnabled(true);
+				btnNewButton_9.setEnabled(true);
+				btnNewButton_10.setEnabled(true);
+				btnNewButton_11.setEnabled(true);
+				btnNewButton_12.setEnabled(true);
+				btnNewButton_13.setEnabled(true);
+				btnNewButton_14.setEnabled(true);
+				btnNewButton_15.setEnabled(true);
+				btnNewButton_16.setEnabled(true);
+		        
+		    }
+		});
+		
+		BotonReIniciar = new JButton("Reiniciar");
+		BotonReIniciar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		footer.add(BotonReIniciar);
+		BotonReIniciar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				 
+					btnNewButton_1.setText("1");
+					btnNewButton_2.setText("2");
+					btnNewButton_3.setText("3");
+					btnNewButton_4.setText("4");
+					btnNewButton_5.setText("5");
+					btnNewButton_6.setText("6");
+					btnNewButton_7.setText("7");
+					btnNewButton_8.setText("8");
+					btnNewButton_9.setText("9");
+					btnNewButton_10.setText("10");
+					btnNewButton_11.setText("11");
+					btnNewButton_12.setText("12");
+					btnNewButton_13.setText("13");
+					btnNewButton_14.setText("14");
+					btnNewButton_15.setText("15");
+					btnNewButton_16.setText("");
+					
+					btnNewButton_1.setEnabled(true);
+					btnNewButton_2.setEnabled(true);
+					btnNewButton_3.setEnabled(true);
+					btnNewButton_4.setEnabled(true);
+					btnNewButton_5.setEnabled(true);
+					btnNewButton_6.setEnabled(true);
+					btnNewButton_7.setEnabled(true);
+					btnNewButton_8.setEnabled(true);
+					btnNewButton_9.setEnabled(true);
+					btnNewButton_10.setEnabled(true);
+					btnNewButton_11.setEnabled(true);
+					btnNewButton_12.setEnabled(true);
+					btnNewButton_13.setEnabled(true);
+					btnNewButton_14.setEnabled(true);
+					btnNewButton_15.setEnabled(true);
+					btnNewButton_16.setEnabled(true);
+					
+					noMovimientos=0;
+					lblNewLabel_1.setText("No. Movimientos: "+noMovimientos);
+					body.repaint();
+					body.revalidate();
+					contentPane.repaint();
+					contentPane.revalidate();
 				}
 			});
 		
 		
-		botonNuevoTablero = new JButton("Nuevo tablero");
-		botonNuevoTablero.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		footer.add(botonNuevoTablero);
+	}
+	public void pausa() {
 		
-		JPanel right = new JPanel();
-		right.setBackground(new Color(0, 128, 128));
-		contentPane.add(right, BorderLayout.EAST);
-		right.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		boolean pausado=false;
+		btnNewButton_1.setEnabled(false);
+		btnNewButton_2.setEnabled(false);
+		btnNewButton_3.setEnabled(false);
+		btnNewButton_4.setEnabled(false);
+		btnNewButton_5.setEnabled(false);
+		btnNewButton_6.setEnabled(false);
+		btnNewButton_7.setEnabled(false);
+		btnNewButton_8.setEnabled(false);
+		btnNewButton_9.setEnabled(false);
+		btnNewButton_10.setEnabled(false);
+		btnNewButton_11.setEnabled(false);
+		btnNewButton_12.setEnabled(false);
+		btnNewButton_13.setEnabled(false);
+		btnNewButton_14.setEnabled(false);
+		btnNewButton_15.setEnabled(false);
+		btnNewButton_16.setEnabled(false);
+	}
+	public void ganar() {
 		
-		JPanel left = new JPanel();
-		left.setBackground(new Color(0, 128, 128));
-		contentPane.add(left, BorderLayout.WEST);
+		if(btnNewButton_1.getText().equals("1")&&btnNewButton_2.getText().equals("2")&&btnNewButton_3.getText().equals("3")&&btnNewButton_4.getText().equals("4")&&
+				btnNewButton_5.getText().equals("5")&&btnNewButton_6.getText().equals("6")&&btnNewButton_7.getText().equals("7")&&btnNewButton_8.getText().equals("8")&&
+				btnNewButton_9.getText().equals("9")&&btnNewButton_10.getText().equals("10")&&btnNewButton_11.getText().equals("11")&&btnNewButton_12.getText().equals("12")&&
+				btnNewButton_13.getText().equals("13")&&btnNewButton_14.getText().equals("14")&&btnNewButton_15.getText().equals("15")&&btnNewButton_16.getText().equals("")) {
+			JOptionPane.showMessageDialog(juegoRompecabezas15.this, "¡Felicidades! Has completado el rompecabezas.", "¡Ganaste!", JOptionPane.INFORMATION_MESSAGE);
+			btnNewButton_1.setEnabled(false);
+			btnNewButton_2.setEnabled(false);
+			btnNewButton_3.setEnabled(false);
+			btnNewButton_4.setEnabled(false);
+			btnNewButton_5.setEnabled(false);
+			btnNewButton_6.setEnabled(false);
+			btnNewButton_7.setEnabled(false);
+			btnNewButton_8.setEnabled(false);
+			btnNewButton_9.setEnabled(false);
+			btnNewButton_10.setEnabled(false);
+			btnNewButton_11.setEnabled(false);
+			btnNewButton_12.setEnabled(false);
+			btnNewButton_13.setEnabled(false);
+			btnNewButton_14.setEnabled(false);
+			btnNewButton_15.setEnabled(false);
+			btnNewButton_16.setEnabled(false);
+		}
+		
 	}
 }
