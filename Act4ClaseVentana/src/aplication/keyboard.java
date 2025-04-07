@@ -115,8 +115,20 @@ public class keyboard extends JFrame implements KeyListener {
 		if(e.getKeyChar() == 'a') {
 			x-=10;
 		}
+		if(x>=640) {
+			x=0;
+		}
+		if(x<=-10) {
+			x=630;
+		}
+		if(y>=550) {
+			y=0;
+		}
+		if(y<=-10) {
+			y=550;
+		}
 		
-		System.out.println(e.getKeyChar());
+		System.out.println("X= "+x+"Y= "+y);
 		
 		this.repaint();
 	}
